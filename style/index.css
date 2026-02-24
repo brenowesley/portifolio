@@ -10,85 +10,139 @@
   --cor-olho-amarelo: #FACC15;   /* Amarelo dourado dos olhos */
   --cor-borda-cinza: #64748B;    /* Cinza metálico da borda externa do escudo */
 }
-/* Estilos globais */
+
+/*======================================================================================================*\
+/* ESTILOS GLOBAIS */
 body {
-  list-style: none; /* Remove marcadores de lista */
-  background-color: var(--cor-fundo-escudo); /* Cor de fundo do escudo */
+  list-style: none; 
+  background-color: var(--cor-fundo-escudo); 
   margin: 0;
   font-family: 'Arial', sans-serif;
-  
-  color: var(--cor-panda-branco); /* Cor do texto */
+  color: var(--cor-panda-branco); 
+  overflow-x: hidden; /* ➔ Impede barra de rolagem horizontal (bug visual) */
 }
-/*======================================================================================================================================*\
-/*cabeçalho e menu de navegação*/
+
+/*======================================================================================================*\
+/* CABEÇALHO E MENU DE NAVEGAÇÃO */
 header {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* ➔ Espalha o logo e o menu */
   gap: 50px;
-  padding: 25px 20px;
-  background: linear-gradient(135deg, #0b1a2d, #132c4d);
+  padding: 15px 40px;
+  background: rgba(13, 20, 36, 0.9); /* ➔ Fundo escuro levemente transparente */
+  backdrop-filter: blur(10px);       /* ➔ Efeito Vidro */
   color: white;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;                  /* ➔ Gruda no teto */
+  top: 0;
+  z-index: 100;                      /* ➔ Fica na frente de tudo */
 }
 
 .logo {
-  width: 100px;
-  height: 100px; 
-  animation: brilhar 2s infinite, pulsar 2s infinite; 
+  width: 70px; /* ➔ Deixei o logo um pouquinho mais elegante pro menu */
+  height: auto; 
+  animation: brilhar 2s infinite; 
 }
 
-
 @keyframes brilhar {
-  0%   { filter: drop-shadow(0 0 5px rgb(255, 255, 255)); }  /* ➔ Brilho fraco */
-  50%  { filter: drop-shadow(0 0 20px rgb(255, 255, 255)); }     /* ➔ Brilho forte e vivo */
-  100% { filter: drop-shadow(0 0 5px rgb(255, 0, 0)); }  /* ➔ Volta a ficar fraco */
+  0%   { filter: drop-shadow(0 0 5px rgb(255, 255, 255)); }  
+  50%  { filter: drop-shadow(0 0 15px rgb(255, 255, 255)); }     
+  100% { filter: drop-shadow(0 0 5px rgb(255, 0, 0)); }  
 }
 
 header h1 {
   font-size: 26px;
   font-weight: 600;
   letter-spacing: 1px;
+  display: none; /* ➔ Esconde o H1 gigante do menu pra ficar limpo (Opcional) */
 }
 
-  
-
-/*menu de navegação*/
+/* Menu de navegação */
 .menu {
   list-style: none; 
   display: flex; 
   justify-content: center;  
-  gap: 40px;
-  padding: 15px 0;
-  background-color: #071220;
+  gap: 30px;
   margin: 0;
+  padding: 0;
 }
 
 .menu li a {
   display: inline-block;
-  color: white;              /* ➔ Letra branca */
-  text-decoration: none;     /* ➔ Arranca fora o sublinhado padrão de links */
-  font-size: 18px;           /* ➔ Tamanho bom para leitura */
-  font-weight: 600;          /* ➔ Letra mais gordinha */
-  text-transform: uppercase; /* ➔ DEIXA TUDO MAIÚSCULO SOZINHO */
-  transition: 0.5s;          /* ➔ Prepara para a animação suave do mouse */
+  color: white;              
+  text-decoration: none;     
+  font-size: 16px;           
+  font-weight: 600;          
+  text-transform: uppercase; 
+  transition: 0.3s;          
 }
 
 .menu li a:hover {
-   color: #ff3333;                  /* ➔ A letra fica vermelha */
-  text-shadow: 0 0 10px red;       /* ➔ Cria um brilho neon vermelho em volta da letra */
-  transform: translateY(-3px); /* ➔ Levanta a letra um pouquinho */
+  color: #ff3333;                  
+  text-shadow: 0 0 10px red;       
+  transform: translateY(-3px); 
 }
-/*======================================================================================================*/
 
-/*corpo */
+/*======================================================================================================*\
+/* ESTRUTURA PRINCIPAL */
 .main {
   display: flex;
   flex-direction: column;  
   gap: 80px;               
-  padding: 60px 20px;
+  padding: 40px 20px;
 }
 
-/* SOBRE MIM */
+/*======================================================================================================*\
+/* 💻 TELA DE APRESENTAÇÃO (A MÁQUINA DE ESCREVER) */
+.tela-apresentacao {
+  display: flex;
+  flex-direction: row;      
+  align-items: center;      
+  justify-content: center;  /* ➔ Corrigido: Centralizado */
+  min-height: 70vh;         
+  gap: 80px;                /* ➔ Corrigido: Distância perfeita */
+  padding: 0 40px;
+}
+
+.texto-hacker {
+  color: var(--cor-tech-ciano);
+  font-family: monospace;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: left;         
+  
+  width: 100%;       
+  max-width: 700px;  
+  min-height: 250px;        
+  line-height: 1.6;
+}
+
+.foto-hacker {
+  width: 350px;             /* ➔ Corrigido: Tamanho perfeito */
+  height: 350px;            
+  object-fit: cover;        /* ➔ Corrigido: Não achata o rosto */
+  
+  border-radius: 10%;       
+  border: 4px solid var(--cor-tech-ciano); 
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6); 
+  
+  opacity: 0;            
+  transform: scale(0.5) translateX(-50px); 
+  transition: all 1s ease-in-out; 
+}
+
+/* A Mágica que o JS vai chamar */
+.mostrar-foto {
+  opacity: 1;            
+  transform: scale(1) translateX(0);   
+}
+
+/*======================================================================================================*\
+/* 🤝 SESSÃO SOBRE MIM */
 .sessao-sobre {
   display: flex;
   flex-direction: row;     
@@ -97,7 +151,6 @@ header h1 {
   gap: 80px;              
 }
 
-/* 📝 SEGURANDO O TEXTO */
 .texto-sobre {
   max-width: 600px;        
   line-height: 1.6;        
@@ -106,72 +159,18 @@ header h1 {
 }
 
 .foto {
-   width: 300px;                /* ➔ Tamanho perfeito pra foto */
-  border-radius: 20px;         /* ➔ Deixa as pontas arredondadas e chiques */
-  animation: deslizar 1.5s ease-out; /* ➔ Chama a animação! */
+  width: 300px;                
+  border-radius: 20px;         
+  animation: deslizar 1.5s ease-out; 
 }
 
 @keyframes deslizar {
-  0% { 
-    opacity: 0; 
-    transform: translateX(150px); /* ➔ Começa invisível e empurrado pra direita */
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateX(0);     /* ➔ Desliza pro lugar normal e aparece */
-  }
-}
-/*======================================================================================================*\
-/* 💻 TELA DE APRESENTAÇÃO (Estilo Gringo Lado a Lado) */
-
-/* 📦 A Caixa Principal */
-.tela-apresentacao {
-  display: flex;
-  flex-direction: row;      /* ➔ A MÁGICA: Coloca Lado a Lado! */
-  align-items:center;      /* ➔ Centraliza os dois na mesma altura */
-  justify-content:left;
-  min-height: 70vh;         
-  gap: 900px;                /* ➔ Dá um espaço bacana entre texto e foto */
-  padding: 0 40px;
-}
-
-/* 📝 O Texto Hacker (Arrumado e Elegante) */
-.texto-hacker {
-  color: #E2E8F0;           /* ➔ COR GRINGA: Um branco levemente prateado (não machuca o olho) */
-  text-shadow: 0 0 5px rgba(0, 212, 255, 0.4); /* ➔ Brilho ciano super suave no texto */
-  font-family: monospace;
-  font-size: 40px;          /* ➔ Um tiquinho menor para caber melhor */
-  font-weight: bold;
-  text-align: left;         
-  max-width: 800px;         /* ➔ AUMENTEI A CAIXA! Agora o nome "Breno Wesley" não quebra */
-  min-height: 250px;        
-  line-height: 1.6;
-}
-
-/* 🖼️ A Foto (Círculo Perfeito) */
-.foto-hacker {
-  width: 650px;             
-  height: 650px;            /* ➔ MÁGICA 1: Força a altura a ser igual à largura */
-  object-fit:fill;        /* fill faz a imagem preencher toda a área, mesmo que distorça um pouco (mas mantém o círculo perfeito) */
-  
-  border-radius: 10%;       /* ➔ Círculo perfeito */
-  border: 4px solid var(--cor-tech-ciano); 
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6); /* ➔ Brilho ajustado pra ficar mais realista */
-  
-  opacity: 0;            
-  transform: scale(0.5) translateX(-50px); 
-  transition: all 1s ease-in-out; 
-}
-
-/* 🚀 A Mágica que o JS vai chamar */
-.mostrar-foto {
-  opacity: 1;            
-  transform: scale(1) translateX(0);   /* ➔ Vai pro tamanho e lugar normal */
+  0% { opacity: 0; transform: translateX(150px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
 /*======================================================================================================*\
 /* 🔧 SESSÃO HABILIDADES */
-
 .sessao-habilidades {
   display: flex;
   flex-direction: column;
@@ -187,30 +186,29 @@ header h1 {
 }
 
 .titulo-futuro {
-  margin-top: 80px; /* ➔ Dá um espaço grande antes de mostrar os planos do futuro */
+  margin-top: 80px; 
 }
 
-/* 📦 ORGANIZANDO OS CARDS LADO A LADO */
 .grid-habilidades, .grid-futuro {
   display: flex;
   justify-content: center;
   gap: 30px;
-  flex-wrap: wrap; /* ➔ Se a tela for pequena (celular), ele joga o card pra baixo sozinho! */
+  flex-wrap: wrap; 
 }
 
-/* 🃏 CARTÕES PRINCIPAIS (O que você estuda hoje) */
+/* Cartões Principais */
 .card-skill {
-  background-color: #111a2e;     /* ➔ Azul um pouco mais claro que o fundo do site */
+  background-color: #111a2e;     
   width: 280px;
   padding: 30px 20px;
   border-radius: 15px;
-  border-bottom: 3px solid var(--cor-tech-ciano); /* ➔ Linha ciano embaixo (Estilo Gringo) */
+  border-bottom: 3px solid var(--cor-tech-ciano); 
   transition: 0.3s;
 }
 
 .card-skill:hover {
-  transform: translateY(-10px);  /* ➔ O card dá um pulinho quando o mouse passa */
-  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2); /* ➔ Brilho ciano embaixo */
+  transform: translateY(-10px);  
+  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2); 
 }
 
 .card-skill img {
@@ -231,10 +229,10 @@ header h1 {
   line-height: 1.5;
 }
 
-/* 🔮 CARTÕES DO FUTURO (Menores e apagados) */
+/* Cartões do Futuro */
 .card-futuro {
   background-color: transparent;
-  border: 2px dashed #64748B;    /* ➔ Borda tracejada (significa "em construção") */
+  border: 2px dashed #64748B;    
   width: 120px;
   padding: 15px;
   border-radius: 10px;
@@ -242,23 +240,23 @@ header h1 {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  opacity: 0.6;                  /* ➔ Fica meio transparente, pois ainda é o futuro */
+  opacity: 0.6;                  
   transition: 0.3s;
 }
 
 .card-futuro:hover {
-  opacity: 1;                    /* ➔ Fica 100% visível quando passa o mouse! */
+  opacity: 1;                    
   border-color: var(--cor-tech-azul);
 }
 
 .card-futuro img {
   width: 40px;
   height: 40px;
-  filter: grayscale(100%);       /* ➔ Ícone preto e branco (ainda não aprendeu) */
+  filter: grayscale(100%);       
 }
 
 .card-futuro:hover img {
-  filter: grayscale(0%);         /* ➔ Ícone ganha cor quando passa o mouse! 🪄 */
+  filter: grayscale(0%);         
 }
 
 .card-futuro span {
@@ -269,7 +267,6 @@ header h1 {
 
 /*======================================================================================================*\
 /* 📂 SESSÃO PROJETOS */
-
 .sessao-projetos {
   display: flex;
   flex-direction: column;
@@ -287,43 +284,40 @@ header h1 {
   display: flex;
   justify-content: center;
   gap: 40px;
-  flex-wrap: wrap; /* ➔ Para o celular não quebrar */
+  flex-wrap: wrap; 
 }
 
-/* 🃏 O CARD DO PROJETO */
 .card-projeto {
   background-color: #111a2e;
-  width: 380px;                  /* ➔ Card grandão */
+  width: 380px;                  
   border-radius: 20px;
-  overflow: hidden;              /* ➔ Corta tudo que vazar para fora do card redondinho */
+  overflow: hidden;              
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: 0.4s;
 }
 
 .card-projeto:hover {
-  transform: translateY(-10px);  /* ➔ Pulinho pra cima */
-  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.15); /* ➔ Brilho ciano */
+  transform: translateY(-10px);  
+  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.15); 
 }
 
-/* 🖼️ ÁREA DA IMAGEM E ZOOM */
 .imagem-projeto {
   width: 100%;
   height: 200px;
-  overflow: hidden;              /* ➔ O segredo pro zoom não vazar da caixa */
+  overflow: hidden;              
 }
 
 .imagem-projeto img {
   width: 100%;
   height: 100%;
-  object-fit: cover;             /* ➔ Não amassa o print do seu site */
-  transition: transform 0.5s ease; /* ➔ Prepara o zoom suave */
+  object-fit: cover;             
+  transition: transform 0.5s ease; 
 }
 
 .card-projeto:hover .imagem-projeto img {
-  transform: scale(1.1);         /* ➔ MÁGICA: Dá um zoom de 10% na foto quando o mouse passa no card! */
+  transform: scale(1.1);         
 }
 
-/* 📝 ÁREA DOS TEXTOS */
 .info-projeto {
   padding: 25px;
 }
@@ -341,7 +335,6 @@ header h1 {
   margin-bottom: 20px;
 }
 
-/* 🏷️ AS TAGS DE TECNOLOGIAS */
 .tags-projeto {
   display: flex;
   gap: 10px;
@@ -350,15 +343,14 @@ header h1 {
 }
 
 .tags-projeto span {
-  background-color: rgba(0, 212, 255, 0.1); /* ➔ Fundo ciano transparente */
-  color: var(--cor-tech-ciano);             /* ➔ Letra ciano */
+  background-color: rgba(0, 212, 255, 0.1); 
+  color: var(--cor-tech-ciano);             
   padding: 5px 12px;
-  border-radius: 50px;                      /* ➔ Formato de "Pílula" */
+  border-radius: 50px;                      
   font-size: 13px;
   font-weight: bold;
 }
 
-/* 🔗 BOTÃO DO GITHUB */
 .btn-github {
   display: inline-block;
   background-color: var(--cor-tech-azul);
@@ -376,6 +368,8 @@ header h1 {
   color: #071220;
 }
 
+/*======================================================================================================*\
+/* RODAPÉ */
 footer {
   text-align: center;
   padding: 20px;
@@ -383,65 +377,66 @@ footer {
   color: var(--cor-panda-sombra);
   font-size: 14px;
 }
+
 /*======================================================================================================*\
 /* 📱 RESPONSIVIDADE: REGRAS SÓ PARA CELULAR E TABLET (Telas menores que 800px) */
 
 @media (max-width: 800px) {
 
-  /* 🧊 1. O CABEÇALHO (Fica em pé para caber na tela) */
-  .header-moderno {
-    flex-direction: column; /* ➔ Empilha o logo e o menu */
+  /* 🧊 1. O CABEÇALHO */
+  header {
+    flex-direction: column; 
     padding: 15px;
     gap: 15px;
   }
   
   .menu {
-    flex-wrap: wrap;        /* ➔ Se não couber, quebra a linha */
+    flex-wrap: wrap;        
     gap: 15px;
   }
 
-  /* 💻 2. TELA DE APRESENTAÇÃO (A Máquina de Escrever) */
+  /* 💻 2. TELA DE APRESENTAÇÃO */
   .tela-apresentacao {
-    flex-direction: column; /* ➔ Coloca a foto EMBAIXO do texto */
+    flex-direction: column; 
     gap: 30px;
     padding: 20px;
+    min-height: auto;
+    margin-top: 40px;
   }
 
   .texto-hacker {
-    font-size: 22px;        /* ➔ Letra menor pra não vazar da tela */
-    text-align: center;     /* ➔ Centraliza no celular */
-    min-height: 150px;      /* ➔ Ajusta a altura da caixa */
+    font-size: 22px;        
+    text-align: center;     
+    min-height: 180px;      
   }
 
   .foto-hacker {
-    width: 220px;           /* ➔ Encolhe a foto no celular */
-    height: 220px;
-  }
-
-  /* 🤝 3. SOBRE MIM (Texto e Foto "Gringa") */
-  .sessao-sobre {
-    flex-direction: column; /* ➔ Empilha a foto e o texto */
-    gap: 40px;
-    padding: 40px 20px;
-    text-align: center;     /* ➔ Tudo centralizado */
-  }
-
-  .foto-perfil {
-    width: 250px;           /* ➔ Encolhe a foto preto e branco */
+    width: 250px;           
     height: 250px;
   }
 
+  /* 🤝 3. SOBRE MIM */
+  .sessao-sobre {
+    flex-direction: column-reverse; /* ➔ Coloca a foto EM CIMA do texto no celular */
+    gap: 40px;
+    padding: 40px 20px;
+    text-align: center;     
+  }
+
+  .foto {
+    width: 250px;           
+  }
+
   .texto-sobre {
-    text-align: center;     /* ➔ Arruma o texto pro meio */
+    text-align: center;     
   }
 
   .texto-sobre h2 {
-    font-size: 32px;        /* ➔ Título um pouco menor */
+    font-size: 28px;        
   }
 
-  /* 📂 4. PROJETOS (Cards automáticos) */
+  /* 📂 4. PROJETOS */
   .card-projeto {
-    width: 100%;            /* ➔ O card vai ocupar a tela toda do celular (fica lindo!) */
+    width: 100%;            
   }
-  
-} 
+}
