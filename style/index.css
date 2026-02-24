@@ -383,3 +383,65 @@ footer {
   color: var(--cor-panda-sombra);
   font-size: 14px;
 }
+/*======================================================================================================*\
+/* 📱 RESPONSIVIDADE: REGRAS SÓ PARA CELULAR E TABLET (Telas menores que 800px) */
+
+@media (max-width: 800px) {
+
+  /* 🧊 1. O CABEÇALHO (Fica em pé para caber na tela) */
+  .header-moderno {
+    flex-direction: column; /* ➔ Empilha o logo e o menu */
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .menu {
+    flex-wrap: wrap;        /* ➔ Se não couber, quebra a linha */
+    gap: 15px;
+  }
+
+  /* 💻 2. TELA DE APRESENTAÇÃO (A Máquina de Escrever) */
+  .tela-apresentacao {
+    flex-direction: column; /* ➔ Coloca a foto EMBAIXO do texto */
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .texto-hacker {
+    font-size: 22px;        /* ➔ Letra menor pra não vazar da tela */
+    text-align: center;     /* ➔ Centraliza no celular */
+    min-height: 150px;      /* ➔ Ajusta a altura da caixa */
+  }
+
+  .foto-hacker {
+    width: 220px;           /* ➔ Encolhe a foto no celular */
+    height: 220px;
+  }
+
+  /* 🤝 3. SOBRE MIM (Texto e Foto "Gringa") */
+  .sessao-sobre {
+    flex-direction: column; /* ➔ Empilha a foto e o texto */
+    gap: 40px;
+    padding: 40px 20px;
+    text-align: center;     /* ➔ Tudo centralizado */
+  }
+
+  .foto-perfil {
+    width: 250px;           /* ➔ Encolhe a foto preto e branco */
+    height: 250px;
+  }
+
+  .texto-sobre {
+    text-align: center;     /* ➔ Arruma o texto pro meio */
+  }
+
+  .texto-sobre h2 {
+    font-size: 32px;        /* ➔ Título um pouco menor */
+  }
+
+  /* 📂 4. PROJETOS (Cards automáticos) */
+  .card-projeto {
+    width: 100%;            /* ➔ O card vai ocupar a tela toda do celular (fica lindo!) */
+  }
+  
+} 
