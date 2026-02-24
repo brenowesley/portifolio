@@ -58,7 +58,7 @@ header h1 {
   font-size: 26px;
   font-weight: 600;
   letter-spacing: 1px;
-  display: none; /* ➔ Esconde o H1 gigante do menu pra ficar limpo (Opcional) */
+  color: var(--cor-panda-branco);
 }
 
 /* Menu de navegação */
