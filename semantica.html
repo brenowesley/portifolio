@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="icon" href="img/logo.png">
+    
+</head>
+<body class="body">
+
+    <header>
+        <img src="img/logo.png" alt="Logo" class="logo">
+        <h1>Bem-vindo ao Meu Portfólio</h1>
+    </header>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="#sobre">Sobre Mim</a></li>
+            <li><a href="#skills">Linguagens</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+        
+        </ul>
+    </nav>
+
+    <main> 
+    <div class="main">
+
+        <!-- 📦 SESSÃO SOBRE (Aqui acontece a mágica) -->
+    <section class="tela-apresentacao">
+    
+    <!-- 📝 O texto digitando -->
+    <div class="texto-hacker">
+        <span id="maquina-escrever"></span><span class="cursor">|</span>
+    </div>
+
+    <!-- 🖼️ A foto que vai aparecer depois -->
+    <img src="img/eu.jfif" alt="Breno Wesley" id="foto-hacker" class="foto-hacker">
+
+</section>
+
+<!-- 🔧 SESSÃO HABILIDADES E FUTURO -->
+<section id="skills" class="sessao-habilidades">
+    
+    <h2>O que estou dominando agora 💻</h2>
+    
+    <div class="grid-habilidades">
+        <!-- Card HTML -->
+        <div class="card-skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5">
+            <h3>HTML5</h3>
+            <p>Construindo a base. Foco em criar estruturas semânticas e acessíveis.</p>
+        </div>
+
+        <!-- Card CSS -->
+        <div class="card-skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3">
+            <h3>CSS3</h3>
+            <p>Deixando tudo bonito. Aprendendo Flexbox, Grid e criando animações.</p>
+        </div>
+
+        <!-- Card JS -->
+        <div class="card-skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript">
+            <h3>JavaScript</h3>
+            <p>Dando vida ao site. Estudando lógica, manipulação da tela (DOM) e regras modernas.</p>
+        </div>
+    </div>
+
+   <!-- 🎯 O FUTURO -->
+    <h2 class="titulo-futuro">Na mira para o Futuro 🎯</h2>
+    
+    <div class="grid-futuro">
+        <!-- Card: React -->
+        <div class="card-futuro">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React">
+            <span>React</span>
+        </div>
+        
+        <!-- Card: Node.js (Para o Backend) -->
+        <div class="card-futuro">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js">
+            <span>Node.js</span>
+        </div>
+        
+        <!-- Card: TypeScript (A evolução natural do JS) -->
+        <div class="card-futuro">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript">
+            <span>TypeScript</span>
+        </div>
+
+        <!-- Card: Banco de Dados (Essencial para Fullstack) -->
+        <div class="card-futuro">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+            <span>Banco de Dados</span>
+        </div>
+    </div>
+
+</section>
+
+<!-- 📂 SESSÃO PROJETOS -->
+<section id="projetos" class="sessao-projetos">
+    
+    <h2>Meus Projetos 🚀</h2>
+    
+    <div class="grid-projetos">
+        
+        <!-- 🍕 PROJETO 1: CASA DA ESFIHA -->
+        <div class="card-projeto">
+            
+            <!-- Foto do Projeto -->
+            <div class="imagem-projeto">
+                <img src="img/casadaesfiha.png" alt="Casa da Esfiha">
+            </div>
+
+            <!-- Informações Atualizadas e Honestas -->
+            <div class="info-projeto">
+                <h3>🍕 Casa da Esfiha 2.0</h3>
+                <p>Sistema web desenvolvido para um negócio local. O projeto consistiu em traduzir as necessidades do cliente para uma aplicação funcional, focando em entregar valor rápido. Código estruturado com apoio de ferramentas de IA para otimização do desenvolvimento.</p>
+                
+                <!-- Ferramentas reais que você usou -->
+                <div class="tags-projeto">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Supabase</span>
+                </div>
+
+                <!-- Botões de Link -->
+                <div class="links-projeto">
+                    <a href="https://github.com/brenowesley/casa-da-esfiha-2.0" target="_blank" class="btn-github">
+                        Ver Código ↗
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+</section>
+    </div>
+</main>
+
+    <footer >
+        <p>&copy; 2026 - Desenvolvido por Breno Wesley</p>
+    </footer>
+
+    <script src="script/index.js"></script>
+
+</body>
+</html>
